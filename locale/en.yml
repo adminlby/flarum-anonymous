@@ -1,0 +1,91 @@
+adminlby-anonymous:
+  admin:
+    settings:
+      editHistoryChoice: "Allow choosing the identity of each edit history entry"
+      editHistoryChoice_help: "Requires Diff 2.0.0. This choice only affects new edit history entries. Original anonymous authors always remain anonymous."
+      editHistoryChoice_requires_diff: "Enable huseyinfiliz/flarum-diff 2.0.0 to use this setting."
+      enabled: Enable anonymous posting
+      discussions: Allow anonymous discussions
+      replies: Allow anonymous replies
+      quotes: Allow anonymous quote replies
+      other: Allow anonymous submissions from other post types
+      showOwn: Show authors the “This is your anonymous post” indicator
+      mode: Posting identity interaction
+      mode_help: Asking opens the identity selector before the composer. Default modes provide an identity toggle in the composer.
+      mode_ask: Ask every time
+      mode_real: Show identity by default
+      mode_anonymous: Anonymous by default
+    permissions:
+      changeIdentity: "Convert existing posts between anonymous and named"
+      start: Start discussions anonymously
+      reply: Reply anonymously
+      reveal: Reveal anonymous authors
+  forum:
+    convert_anonymous_button: "Convert to anonymous"
+    convert_named_button: "Show the author's identity"
+    convert_anonymous_title: "Convert this post to anonymous"
+    convert_named_title: "Make this post's author public"
+    convert_anonymous_help: "Hide this post's author and the author's associated edit history. Converting the first post also makes the discussion starter anonymous."
+    convert_named_help: "This makes the original author's account public, including their associated edit history. Other editors' independently anonymous entries remain anonymous."
+    convert_related_help: "Stored post mentions and on-site notifications follow the new identity. This moderation action is audited when Audit is enabled."
+    convert_anonymous_confirm: "Confirm anonymous conversion"
+    convert_named_confirm: "Confirm public identity"
+    own_edit: "This is your anonymous edit"
+    edit_identity_title: "Choose your editing identity"
+    edit_identity_help: "This choice applies only to this edit history entry. Showing identity makes your editing account public. The original post’s identity stays unchanged."
+    edit_anonymously: "Edit anonymously"
+    edit_original_author_locked: "Original anonymous author: always anonymous"
+    reveal_editor_button: "View real editor"
+    reveal_editor_title: "Real editor of this anonymous revision"
+    reveal_editor_help: "This action may be recorded in the audit log. The edit history will continue to display as anonymous."
+    history_created: "Anonymous user created {ago}"
+    history_edited: "Anonymous user edited {ago}"
+    history_deleted: "Anonymous user deleted this revision {ago}"
+    history_deleted_suffix: "(deleted)"
+    anonymous_user: Anonymous user
+    own_post: This is your anonymous post
+    identity_title: Choose your posting identity
+    identity_help: Your choice applies to this submission. Moderators with permission can trace the real author.
+    post_anonymously: Post anonymously
+    show_identity: Show identity
+    type_disabled: Anonymous posting is unavailable for this submission type. Choose “Show identity” to continue.
+    reveal_button: View real author
+    reveal_title: Real author of this anonymous post
+    reveal_help: This action may be recorded in the forum audit log. The post will continue to display as anonymous.
+    author_id: User ID
+    author_name: Display name
+    author_username: Username
+    deleted_author: Deleted user
+    started: "Anonymous user started {ago}"
+    replied: "Anonymous user replied {ago}"
+    anonymous_replies: "{count, plural, one {An anonymous user replied} other {Anonymous users replied}}"
+    edited_anonymously: Edited
+    edited_tooltip: "Anonymous user edited {ago}"
+    notifications:
+      generic: New anonymous activity
+      newPost: An anonymous user replied to a discussion you follow
+      postMentioned: An anonymous user replied to your post
+      userMentioned: An anonymous user mentioned you
+      groupMentioned: An anonymous user mentioned your group
+      discussionRenamed: An anonymous user renamed the discussion
+  api:
+    edit_original_author_locked: "The original anonymous author must remain anonymous in edit history."
+    edit_choice_disabled: "Choosing an edit history identity is disabled, or Diff does not record this post type."
+    identity_immutable: Posting identity can only be chosen when creating a submission.
+    invalid_identity: Anonymous status must be a boolean.
+  email:
+    subject: "Anonymous activity in {title}"
+    body: "An anonymous user posted or mentioned you in {title}."
+    view_post: View post
+  audit:
+    identity_changed: "Posting identity changed"
+    edit_author_revealed: Anonymous editor revealed
+    author_revealed: Anonymous author revealed
+
+flarum-audit:
+  lib:
+    browser:
+      anonymous:
+        identity_changed: => adminlby-anonymous.audit.identity_changed
+        edit_author_revealed: => adminlby-anonymous.audit.edit_author_revealed
+        author_revealed: => adminlby-anonymous.audit.author_revealed

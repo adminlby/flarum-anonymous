@@ -1,0 +1,91 @@
+adminlby-anonymous:
+  admin:
+    settings:
+      editHistoryChoice: "允許選擇每條編輯記錄的身分"
+      editHistoryChoice_help: "需要 Diff 2.0.0。選擇只影響新增編輯記錄；匿名原帖作者始終保持匿名。"
+      editHistoryChoice_requires_diff: "啟用 huseyinfiliz/flarum-diff 2.0.0 後才能使用此設定。"
+      enabled: 啟用匿名投稿
+      discussions: 允許匿名主題
+      replies: 允許匿名一般回覆
+      quotes: 允許匿名引用回覆
+      other: 允許其他貼文類型的匿名投稿
+      showOwn: 向作者顯示「這是你發佈的匿名內容」提示
+      mode: 發佈身分互動模式
+      mode_help: 每次詢問模式會在編輯器開啟前要求選擇身分。預設身分模式可在編輯器中切換身分。
+      mode_ask: 每次發佈前詢問
+      mode_real: 預設顯示身分
+      mode_anonymous: 預設匿名
+    permissions:
+      changeIdentity: "將既有帖子轉為匿名或實名"
+      start: 匿名發佈主題
+      reply: 匿名發佈回覆
+      reveal: 查看匿名真實作者
+  forum:
+    convert_anonymous_button: "轉為匿名"
+    convert_named_button: "公開作者身份"
+    convert_anonymous_title: "將此帖轉為匿名"
+    convert_named_title: "公開此帖作者身份"
+    convert_anonymous_help: "隱藏此帖作者及該作者相關編輯歷史的身份。首帖轉為匿名時，主題發起人也會匿名。"
+    convert_named_help: "此操作會公開原作者帳號及其相關編輯歷史。其他編輯者獨立選擇匿名的記錄仍保持匿名。"
+    convert_related_help: "既有帖子引用及站內通知隨新身份顯示。啟用 Audit 時會記錄此次管理操作。"
+    convert_anonymous_confirm: "確認轉為匿名"
+    convert_named_confirm: "確認公開身份"
+    own_edit: "這是你的匿名編輯記錄"
+    edit_identity_title: "選擇本次編輯記錄的身分"
+    edit_identity_help: "選擇僅影響本次編輯記錄。選擇顯示身分會公開你的編輯帳號，原帖的匿名狀態不變。"
+    edit_anonymously: "匿名編輯"
+    edit_original_author_locked: "匿名原帖作者始終保持匿名"
+    reveal_editor_button: "查看真實編輯者"
+    reveal_editor_title: "此匿名編輯記錄的真實編輯者"
+    reveal_editor_help: "此操作可能被記錄於稽核日誌中。編輯歷史仍將顯示為匿名。"
+    history_created: "匿名使用者於 {ago} 建立"
+    history_edited: "匿名使用者於 {ago} 編輯"
+    history_deleted: "匿名使用者於 {ago} 刪除了此編輯記錄"
+    history_deleted_suffix: "（已刪除）"
+    anonymous_user: 匿名使用者
+    own_post: 這是你發佈的匿名內容
+    identity_title: 選擇發佈身分
+    identity_help: 你的選擇僅適用於本次投稿。具有權限的管理人員可以追溯真實作者。
+    post_anonymously: 匿名發佈
+    show_identity: 顯示身分
+    type_disabled: 此類投稿尚未開放匿名功能。請選擇「顯示身分」繼續發佈。
+    reveal_button: 查看真實作者
+    reveal_title: 此匿名貼文的真實作者
+    reveal_help: 此操作可能被記錄於論壇稽核日誌中。貼文仍將顯示為匿名。
+    author_id: 使用者 ID
+    author_name: 顯示名稱
+    author_username: 使用者名稱
+    deleted_author: 使用者已刪除
+    started: "匿名使用者於 {ago} 發佈"
+    replied: "匿名使用者於 {ago} 回覆"
+    anonymous_replies: "匿名使用者回覆了此內容（{count}）"
+    edited_anonymously: 已編輯
+    edited_tooltip: "匿名使用者於 {ago} 編輯"
+    notifications:
+      generic: 有新的匿名動態
+      newPost: 匿名使用者回覆了你關注的主題
+      postMentioned: 匿名使用者回覆了你的貼文
+      userMentioned: 匿名使用者提及了你
+      groupMentioned: 匿名使用者提及了你的使用者群組
+      discussionRenamed: 匿名使用者修改了主題標題
+  api:
+    edit_original_author_locked: "匿名原帖作者在編輯歷史中必須保持匿名。"
+    edit_choice_disabled: "後臺尚未允許選擇編輯記錄的身分，或 Diff 未記錄此類帖子的編輯歷史。"
+    identity_immutable: 發佈身分只能在建立投稿時選擇。
+    invalid_identity: 匿名狀態必須是布林值。
+  email:
+    subject: "{title} 中有新的匿名動態"
+    body: "匿名使用者在 {title} 中發佈了內容或提及了你。"
+    view_post: 查看貼文
+  audit:
+    identity_changed: "投稿身份已變更"
+    edit_author_revealed: 查看了匿名真實編輯者
+    author_revealed: 查看了匿名真實作者
+
+flarum-audit:
+  lib:
+    browser:
+      anonymous:
+        identity_changed: => adminlby-anonymous.audit.identity_changed
+        edit_author_revealed: => adminlby-anonymous.audit.edit_author_revealed
+        author_revealed: => adminlby-anonymous.audit.author_revealed

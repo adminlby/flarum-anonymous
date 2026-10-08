@@ -1,0 +1,43 @@
+{
+    "name": "adminlby/flarum-anonymous",
+    "description": "Server-enforced anonymous posting for Flarum 2.0.0-rc.8, with explicit and auditable author reveal.",
+    "type": "flarum-extension",
+    "license": "MIT",
+    "keywords": ["flarum", "anonymous", "privacy"],
+    "authors": [{"name": "adminlby"}],
+    "support": {"source": "https://github.com/adminlby/flarum-anonymous", "issues": "https://github.com/adminlby/flarum-anonymous/issues"},
+    "require": {"php": "~8.4.0", "flarum/core": ">=2.0.0-rc.8 <2.0.0-rc.9"},
+    "require-dev": {
+        "flarum/testing": "2.0.0-rc.8",
+        "flarum/lang-english": "2.0.0-rc.8",
+        "flarum/mentions": "2.0.0-rc.8",
+        "flarum/subscriptions": "2.0.0-rc.8",
+        "flarum/likes": "2.0.0-rc.8",
+        "flarum/audit": "2.0.0-rc.8",
+        "flarum/bbcode": "2.0.0-rc.8",
+        "flarum/tags": "2.0.0-rc.8",
+        "fof/polls": "3.0.0-rc.4",
+        "fof/seo": "4.0.0-beta.9",
+        "fof/split": "2.0.0-beta.4",
+        "huseyinfiliz/leaderboard": "2.1.0",
+        "huseyinfiliz/flarum-diff": "2.0.0"
+    },
+    "autoload": {"psr-4": {"AdminLby\\Anonymous\\": "src/"}},
+    "autoload-dev": {"psr-4": {"AdminLby\\Anonymous\\Tests\\": "tests/"}},
+    "extra": {
+        "flarum-extension": {
+            "title": "Anonymous Posting",
+            "category": "feature",
+            "optional-dependencies": ["flarum/mentions", "flarum/subscriptions", "flarum/audit", "flarum/likes", "huseyinfiliz/flarum-diff", "fof/seo", "fof/polls", "fof/split", "huseyinfiliz/leaderboard"],
+            "icon": {"name": "fas fa-user-secret", "backgroundColor": "#526582", "color": "#fff"}
+        }
+    },
+    "minimum-stability": "RC",
+    "prefer-stable": true,
+    "config": {"sort-packages": true},
+    "scripts": {
+        "test:setup": "@php tests/setup.php",
+        "test": "phpunit -c phpunit.xml",
+        "lint": "@php tools/php-lint.php"
+    }
+}

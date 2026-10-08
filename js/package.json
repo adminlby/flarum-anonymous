@@ -1,0 +1,22 @@
+{
+  "name": "@adminlby/flarum-anonymous",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test -c playwright.config.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/jquery": "^3.5.32",
+    "@types/mithril": "^2.2.8",
+    "flarum-tsconfig": "^2.0.0",
+    "flarum-webpack-config": "^3.0.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.0",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

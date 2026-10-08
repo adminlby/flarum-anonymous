@@ -1,0 +1,9 @@
+/vendor/
+/.workbench/
+/js/node_modules/
+/js/coverage/
+/.phpunit.cache/
+/.phpunit.result.cache
+/tests/tmp/
+*.log
+/flarum-anonymous.tar.gz
